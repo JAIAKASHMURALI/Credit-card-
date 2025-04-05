@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.card-form {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-display {
+    perspective: 1000px;
+    margin-bottom: 30px;
+}
+
+.card-front {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    height: 200px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
+}
+
+.card-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.card-number {
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    word-spacing: 10px;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-holder, .card-expiry {
+    font-size: 14px;
+}
+
+.card-holder label, .card-expiry label {
+    display: block;
+    opacity: 0.8;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.card-type {
+    height: 30px;
+    margin-top: 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+#result {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 5px;
+    display: none;
+}
+
+#result h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+#risk-level {
+    font-weight: bold;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#recommendation {
+    font-style: italic;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Card type icons */
+.visa {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgODAiPjxwYXRoIGZpbGw9IiMxYTY1ZTYiIGQ9Ik0xMDQuNjUgMjUuNDdoNDMuODR2MjkuMDZoLTEzLjE3bC0xLjM4LTYuNjJoLTMwLjI5bC0yLjYyIDEyLjUyaC0xNi4yN2w4Ljg0LTQyLjEzaDUxLjY5bC0xLjM4IDYuNjJ6bS0xNS4xNyAxNi4xOWgxOS4zMWwtMy40NSAxNi41aC0xMi40MXoiLz48cGF0aCBmaWxsPSIjZmZhYzAwIiBkPSJNMTg3LjY1IDI1LjQ3aDE2LjI3bC0xMC4zOCA0OS41M2gtMTYuMjdsMTAuMzgtNDkuNTN6Ii8+PHBhdGggZmlsbD0iIzFhNjVlNiIgZD0iTTIyMy42NSAyNS40N2gxNi4yN2wtMTAuMzggNDkuNTNoLTE2LjI3eiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xMzkuNjUgMjUuNDdoMTYuMjdsLTEwLjM4IDQ5LjUzaC0xNi4yN3oiLz48L3N2Zz4=');
+}
+
+.mastercard {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgODAiPjxwYXRoIGZpbGw9IiNmZiBmZiIgZD0iTTE0OS42NSAyNS40N2gtMTYuMjdsLTEwLjM4IDQ5LjUzaDE2LjI3eiIvPjxwYXRoIGZpbGw9IiNmZjAwIiBkPSJNMTU5LjY1IDUwLjI0YzAtMTMuNjItMTEuMDQtMjQuNjYtMjQuNjYtMjQuNjZzLTI0LjY2IDExLjA0LTI0LjY2IDI0LjY2IDExLjA0IDI0LjY2IDI0LjY2IDI0LjY2YzYuNiAwIDEyLjYyLTIuNTkgMTcuMTItNi44aC0xNy4xMnYtOC4yNmgxNy4xMmMuOTktMS41MyAxLjU0LTMuMjcgMS41NC01LjE2eiIvPjxwYXRoIGZpbGw9IiNmZjAwIiBkPSJNMTM0Ljk5IDI1LjU4Yy02LjYgMC0xMi42MiAyLjU5LTE3LjEyIDYuOGgxNy4xMnY4LjI2aC0xNy4xMmMtLjk5IDEuNTMtMS41NCAzLjI3LTEuNTQgNS4xNiAwIDEzLjYyIDExLjA0IDI0LjY2IDI0LjY2IDI0LjY2czI0LjY2LTExLjA0IDI0LjY2LTI0LjY2YzAtMTMuNjItMTEuMDQtMjQuNjYtMjQuNjYtMjQuNjZ6Ii8+PC9zdmc+');
+}
+
+.amex {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgODAiPjxwYXRoIGZpbGw9IiMwMDYmZjNmZiIgZD0iTTE0OS42NSAyNS40N2gtMTYuMjdsLTEwLjM4IDQ5LjUzaDE2LjI3eiIvPjxwYXRoIGZpbGw9IiNmZiIgZD0iTTE2OS42NSA1MC4yNGMwLTEzLjYyLTExLjA0LTI0LjY2LTI0LjY2LTI0LjY2cy0yNC42NiAxMS4wNC0yNC42NiAyNC42NiAxMS4wNCAyNC42NiAyNC42NiAyNC42NmM2LjYgMCAxMi42Mi0yLjU5IDE3LjEyLTYuOGgtMTcuMTJ2LTguMjZoMTcuMTJjLjk5LTEuNTMgMS41NC0zLjI3IDEuNTQtNS4xNnoiLz48cGF0aCBmaWxsPSIjMDA2JmYzZmYiIGQ9Ik0xNDQuOTkgMjUuNThjLTYuNiAwLTEyLjYyIDIuNTktMTcuMTIgNi44aDE3LjEydjguMjZoLTE3LjEyYy0uOTkgMS41My0xLjU0IDMuMjctMS41NCA1LjE2IDAgMTMuNjIgMTEuMDQgMjQuNjYgMjQuNjYgMjQuNjZzMjQuNjYtMTEuMDQgMjQuNjYtMjQuNjZjMC0xMy42Mi0xMS4wNC0yNC42Ni0yNC42Ni0yNC42NnoiLz48L3N2Zz4=');
+}
+
+/* Risk level colors */
+.low-risk {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.medium-risk {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.high-risk {
+    background-color: #f8d7da;
+    color: #721c24;
+}
